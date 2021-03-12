@@ -224,7 +224,7 @@ export function buildRelInfoMap(keys, relations, approximations, period) {
     }
     return map;
 }
-export function getScale(data, pitches, period, baseFreq, diapason = { bottom: 60, top: 6000 }) {
+export function getScale(data, pitches, period, baseFreq, diapason = { bottom: 80, top: 2000 }) {
     let base = new Array(pitches.length);
     let full = [];
     //for base
