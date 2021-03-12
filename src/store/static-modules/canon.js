@@ -96,7 +96,11 @@ export default {
             );
             state.s_relInfo = Helper.buildRelInfoMap(state.sec_data.keys, rawmaps.relations, state.map_intervals, state.params.period);
             state.s_pitches = state.sec_data.keys.slice().sort((a, b) => state.sec_data[a].rtr - state.sec_data[b].rtr);
-            state.map_scale = Helper.getScale(state.sec_data, state.s_pitches, state.params.period, state.baseFreq);
+            state.map_scale = Helper.getScale(
+                state.sec_data, state.s_pitches, 
+                state.params.period, 
+                state.baseFreq
+                );
             /*
             saving schema to LS
             */
@@ -242,11 +246,9 @@ export default {
                 if (payload.freq > 20) state.baseFreq = payload.freq;
                 if (payload.strL > 0) state.baseStrL = payload.strL;
             } else if (payload.parent != null || payload.rtp != null) {
-
-                if (payload.parent != null && state.sec_data[payload.parent] != undefined) throw "EDIT_SECTION: invalid parent";
+                if (payload.parent != null && state.sec_data[payload.parent] == undefined) throw "EDIT_SECTION: invalid parent";
                 if (isNaN(payload.rtp)) throw "EDIT_SECTION: invalid rtp";
                 //new data
-
                 let parent = payload.parent != null ? payload.parent : state.sec_data[id].parent;
                 let rtp = payload.rtp != null ? payload.rtp : state.sec_data[id].rtp;
 

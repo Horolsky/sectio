@@ -199,7 +199,7 @@ export default {
 
         this.parentOptions = (function() {
           let parents = vue.s_pitches;
-          let map_children = vue.$store.getters[`${vue.canonID}/map_children`];
+          let map_children = vue.$store.getters[`canon/map_children`];
           //recursive parentlist cleaning (to prevent infinite parenting loops like a>b>c>a)
           (function clearParents(secID) {
             let selfIndex = parents.indexOf(secID);
