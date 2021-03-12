@@ -116,7 +116,7 @@
       style="align-content: center; font-size: 14px;"
     >
       <span>
-        Designed by A. Horolsky
+        Developed by A. Horolsky
       </span>
       <!-- sound on/off -->
       <v-spacer />

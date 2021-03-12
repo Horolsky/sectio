@@ -19,11 +19,11 @@
         dark
       >
         <!-- -->
-        <RatioViewMode v-show="mode == 0" vertical backColor="blue-grey" />
-        <v-icon disabled color="grey">mdi-dots-horizontal</v-icon>
-        <WaveToggler v-show="mode != 2" vertical backColor="blue-grey" />
+        <RatioViewMode v-show="mode != 1" vertical backColor="blue-grey" />
+        <v-icon v-show="mode != 1" disabled color="grey">mdi-dots-horizontal</v-icon>
 
-        <v-icon disabled color="grey">mdi-dots-horizontal</v-icon>
+        <WaveToggler v-show="mode != 2" vertical backColor="blue-grey" />
+        <v-icon v-show="mode != 2" disabled color="grey">mdi-dots-horizontal</v-icon>
         <!-- ratioViewMode  activator -->
 
         <HintedButton
@@ -39,7 +39,7 @@
           :disabled="portraitScreen"
         />
         <v-spacer />
-        <span>{{ ratioViewMode }}</span>
+        <!--<span>{{ ratioViewMode }}</span>-->
       </v-card>
     </v-container>
   </v-navigation-drawer>
