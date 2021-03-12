@@ -1,0 +1,63 @@
+{
+    "name": "Didymus Chromatic",
+    "code": "DidymusC",
+    "description": "",
+    "baseFreq": 200,
+    "baseStrL": 1200,
+    "params": {
+        "range": 1000,
+        "period": 1,
+        "comma": 0.017921907997262315
+    },
+    "sections": [
+        {
+            "id": 0,
+            "name": "E",
+            "code": "E",
+            "parent": null,
+            "rtp": 0
+        },
+        {
+            "id": 1,
+            "name": "F",
+            "code": "F",
+            "parent": 0,
+            "rtp": 0.09310940439148145
+        },
+        {
+            "id": 2,
+            "name": "G",
+            "code": "G",
+            "parent": 0,
+            "rtp": 0.15200309344505006
+        },
+        {
+            "id": 3,
+            "name": "A",
+            "code": "A",
+            "parent": 0,
+            "rtp": 0.41503749927884376
+        },
+        {
+            "id": 4,
+            "name": "B",
+            "code": "B",
+            "parent": 0,
+            "rtp": 0.5849625007211562
+        },
+        {
+            "id": 5,
+            "name": "C",
+            "code": "C",
+            "parent": 4,
+            "rtp": 0.09310940439148145
+        },
+        {
+            "id": 6,
+            "name": "D",
+            "code": "D",
+            "parent": 4,
+            "rtp": 0.15200309344505006
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "name": "12-tone equal temperament",
+    "code": "12TET",
+    "description": "12 equal divisions of octave. Default temperament for most of the modern tempered instruments",
+    "baseFreq": 130,
+    "baseStrL": 1200,
+    "params": {
+        "limit": 5,
+        "range": 100,
+        "period": 1
+    },
+    "sections": [
+        {
+            "name": "C",
+            "rtp": 0
+        },
+        {
+            "name": "C#",
+            "parent": 0,
+            "rtp": 0.08333333333333333
+        },
+        {
+            "name": "D",
+            "parent": 1,
+            "rtp": 0.08333333333333333
+        },
+        {
+            "name": "D#",
+            "parent": 2,
+            "rtp": 0.08333333333333333
+        },
+        {
+            "name": "E",
+            "parent": 3,
+            "rtp": 0.08333333333333333
+        },
+        {
+            "name": "F",
+            "parent": 4,
+            "rtp": 0.08333333333333333
+        },
+        {
+            "name": "F#",
+            "parent": 5,
+            "rtp": 0.08333333333333333
+        },
+        {
+            "name": "G",
+            "parent": 6,
+            "rtp": 0.08333333333333333
+        },
+        {
+            "name": "G#",
+            "parent": 7,
+            "rtp": 0.08333333333333333
+        },
+        {
+            "name": "A",
+            "parent": 8,
+            "rtp": 0.08333333333333333
+        },
+        {
+            "name": "A#",
+            "parent": 9,
+            "rtp": 0.08333333333333333
+        },
+        {
+            "name": "B",
+            "parent": 10,
+            "rtp": 0.08333333333333333
+        }
+    ]
+}

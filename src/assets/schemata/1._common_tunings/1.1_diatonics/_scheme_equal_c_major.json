@@ -1,0 +1,64 @@
+{
+    "name": "C Major 12-TET",
+    "code": "EqualC",
+    "description": "",
+    "baseFreq": 130,
+    "baseStrL": 1200,
+    "params": {
+        "limit": 5,
+        "range": 100,
+        "period": 1,
+        "comma": 0.017921907997262315
+    },
+    "sections": [
+        {
+            "id": 0,
+            "name": "C",
+            "code": "C",
+            "parent": null,
+            "rtp": 0
+        },
+        {
+            "id": 2,
+            "name": "D",
+            "code": "D",
+            "parent": 0,
+            "rtp": 0.16666666666666666
+        },
+        {
+            "id": 4,
+            "name": "E",
+            "code": "E",
+            "parent": 0,
+            "rtp": 0.3333333333333333
+        },
+        {
+            "id": 5,
+            "name": "F",
+            "code": "F",
+            "parent": 4,
+            "rtp": 0.08333333333333333
+        },
+        {
+            "id": 7,
+            "name": "G",
+            "code": "G",
+            "parent": 0,
+            "rtp": 0.5833333333333333
+        },
+        {
+            "id": 9,
+            "name": "A",
+            "code": "A",
+            "parent": 0,
+            "rtp": 0.75
+        },
+        {
+            "id": 11,
+            "name": "B",
+            "code": "B",
+            "parent": 0,
+            "rtp": 0.9166666666666667
+        }
+    ]
+}

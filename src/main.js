@@ -1,0 +1,45 @@
+/* eslint-disable no-console */
+import Vue from 'vue'
+import App from './App.vue'
+import store from './store/store'
+import vuetify from './plugins/vuetify';
+import sound from './plugins/sound';
+import localStorageManager from './plugins/LocalStorageManager';
+import MathCanonis from './utility/math-canonis';
+Math.Canonis = MathCanonis;
+Object.freeze(Math.Canonis);
+import installArrayFuncs from './utility/installed-utils-array';
+installArrayFuncs();
+
+
+
+
+
+import './components/_global/_register'
+import './registerServiceWorker'
+import Notifications from 'vue-notification'
+import Vue2TouchEvents from 'vue2-touch-events'
+Vue.use(Vue2TouchEvents)
+Vue.use(Notifications);
+
+
+Vue.config.productionTip = false;
+
+
+import GlobalMixin from "./global-mixins/_global-mixins"
+Vue.mixin(GlobalMixin)
+new Vue({
+    //myOption: 'hello!',
+    vuetify,
+    sound,
+    localStorageManager,
+    store,
+    render: h => h(App),
+    beforeCreate() {
+        this.$store.dispatch("UPDATE_REG");
+    },
+    created() {
+        /*window.onload = () => {
+        };*/
+    }
+}).$mount('#app');

@@ -1,0 +1,49 @@
+{
+    "name": "Pythagorean C-maj",
+    "code": "pythagorean",
+    "description": "simple 3-limit diatonic",
+    "baseFreq": 130,
+    "baseStrL": 1200,
+    "params": {
+        "limit": 3,
+        "range": 256,
+        "period": 1,
+        "comma": 0.017921907997262315
+    },
+    "sections": [
+        {
+            "name": "C",
+            "rtp": 0
+        },
+        {
+            "name": "G",
+            "parent": 0,
+            "rtp": 0.5849625007211562
+        },
+        {
+            "name": "D",
+            "parent": 1,
+            "rtp": -0.4150374992788438
+        },
+        {
+            "name": "A",
+            "parent": 2,
+            "rtp": 0.5849625007211562
+        },
+        {
+            "name": "E",
+            "parent": 3,
+            "rtp": -0.4150374992788438
+        },
+        {
+            "name": "F",
+            "parent": 0,
+            "rtp": 0.41503749927884376
+        },
+        {
+            "name": "B",
+            "parent": 4,
+            "rtp": 0.5849625007211562
+        }
+    ]
+}

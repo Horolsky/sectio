@@ -1,0 +1,63 @@
+{
+    "name": "Al'Farabi's \"Zalzal\"",
+    "code": "Farabi_Zalzal",
+    "description": "",
+    "baseFreq": 200,
+    "baseStrL": 1200,
+    "params": {
+        "range": 1000,
+        "period": 1,
+        "comma": 0.017921907997262315
+    },
+    "sections": [
+        {
+            "id": 0,
+            "name": "Г",
+            "code": "Г",
+            "parent": null,
+            "rtp": 0
+        },
+        {
+            "id": 1,
+            "name": "A",
+            "code": "A",
+            "parent": 0,
+            "rtp": 0.16992500144231237
+        },
+        {
+            "id": 2,
+            "name": "B<",
+            "code": "B<",
+            "parent": 0,
+            "rtp": 0.2954558835261713
+        },
+        {
+            "id": 3,
+            "name": "C",
+            "code": "C",
+            "parent": 0,
+            "rtp": 0.41503749927884376
+        },
+        {
+            "id": 4,
+            "name": "D",
+            "code": "D",
+            "parent": 0,
+            "rtp": 0.5849625007211562
+        },
+        {
+            "id": 5,
+            "name": "E<",
+            "code": "E<",
+            "parent": 0,
+            "rtp": 0.7104933828050152
+        },
+        {
+            "id": 6,
+            "name": "F",
+            "code": "F",
+            "parent": 0,
+            "rtp": 0.8300749985576875
+        }
+    ]
+}
