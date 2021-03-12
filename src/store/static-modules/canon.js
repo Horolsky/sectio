@@ -146,6 +146,7 @@ export default {
             state.dict_ratio = Helper.buildRatioDict(limit, range);
 
             state.sec_data.clear();
+            sections = sections.sort((a, b) => a.parent - b.parent);
             for (let s = 0; s < sections.length; s++) {
                 let id = sections[s].id ? sections[s].id : s;
                 let name = sections[s].name ? sections[s].name : `s${s}`;
