@@ -31,7 +31,7 @@
                     >
                   </th>
                   <th class="text-center" style="width: 50%">Ratio</th>
-                  <th class="text-center" style="width: 50%">Cents</th>
+                  <th class="text-center" style="width: 50%">Primes</th>
                   <!--<th class="text-left pairs">Section pairs</th>-->
                 </tr>
               </thead>
@@ -40,9 +40,7 @@
                   <td>
                     <v-checkbox dense v-model="tabInt.active" />
                   </td>
-                  <td v-html="tabInt.ratio" />
-                  <td v-html="tabInt.cents" />
-                  <!--<td v-html="tabInt.pairs" />-->
+                  <td v-html="[tabInt.ratio,tabInt.mixed,tabInt.cents][ratioViewMode]" />
                 </tr>
               </tbody>
             </template>
@@ -124,23 +122,20 @@ export default {
       let findApproximation = this.$store.getters[`canon/findApproximation`];
       let table = new Array(intvs.length - 1);
       for (let i = 1; i < intvs.length; i++) {
-        let pairs = intvs[i].pairs,
-          recto = intvs[i].recto.euler,
-          info = findApproximation(recto),
-          ptol = this.getView_FullPtolemaic(info, this.comma),
-          ellis = this.getView_FullEllis(info);
+        //let pairs = intvs[i].pairs,
+        let recto = intvs[i].recto.euler,
+          info = findApproximation(recto).up,
+          ptol = this.getView_Ptolemaic(info, this.comma),
+          ellis = this.getView_Ellis(info),
+          mixed = this.getView_Mixed(info, this.comma);
 
         table[i - 1] = {
           recto: recto,
-          ratio: this.period
-            ? ptol.join("&nbsp;&nbsp;//&nbsp;&nbsp;")
-            : ptol[0],
-          cents: this.period
-            ? ellis.join("&nbsp;&nbsp;//&nbsp;&nbsp;")
-            : ellis[0],
-          pairs: this.getPairs(pairs),
+          ratio: ptol,
+          cents: ellis,
+          mixed: mixed,
+          //pairs: this.getPairs(pairs),
           get active() {
-            //return null;
             return vue.chart_intervals.find((el) => el.recto == recto).active;
           },
           set active(val) {
@@ -153,7 +148,8 @@ export default {
         };
       }
 
-      return table.sort((a, b) => a.recto - b.recto);
+      table = table.sort((a, b) => a.recto - b.recto);
+      return table;
     },
     getPairs(pairs) {
       let arr = [];
