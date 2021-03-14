@@ -521,6 +521,17 @@ export default {
                 pool[i] = state.sec_data[state.sec_data.keys[i]].code;
             }
             return pool;
-        }
+        },
+        get_chord_ratios: (state) => (chord) => {
+            if (!Array.isArray(chord)) return null;
+            if (chord.length == 1) return [];
+            let ratios = new Array(chord.length-1);
+            for (let i = 0; i < chord.length-1; i++){
+                ratios[i] = state.s_relInfo[chord[0]][chord[i+1]].up;
+            }
+            /* eslint-disable no-console */
+            console.log(ratios);
+            return ratios;
+        },
     }
 }
