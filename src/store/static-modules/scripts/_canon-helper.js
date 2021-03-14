@@ -178,37 +178,44 @@ export function buildApproximationsMap(intvs, limit, range, approximate) {
 export function findApproximation(map, period, orig) {
     let record = Object.create(null);
     let find = false;
-    let val = Math.abs(orig);
-    let is_recto = period ? period / 2 > val : false;
+    //let val = Math.abs(orig);
+    let is_pos = orig >= 0;
+    let is_recto = period ? period / 2 > Math.abs(orig) : false;
+    let val = is_recto ? Math.abs(orig) : period - Math.abs(orig);
     let typo;
     for (let i = 0; i < map.length; i++) {
-        if (is_recto) {
-            if (Math.abs(val - map[i].recto.euler) < (precision)) {
-                find = true, typo = map[i];
-                break;
-            }
-        } else {
-            if (Math.abs(val - map[i].inverso.euler) < (precision)) {
-                find = true, typo = map[i];
-                break;
-            }
+        if (Math.abs(val - map[i].recto.euler) < (precision)) {
+            find = true, typo = map[i];
+            break;
         }
     }
     if (find) {
+        let r_appr, i_appr, r_euler, i_euler;
 
-        //NB bug here
+        if (is_pos ^ is_recto){
+            r_appr = typo.recto.approximation.slice().reverse();
+            i_appr = typo.inverso.approximation.slice();
+            r_euler = typo.recto.euler * -1;
+            i_euler = typo.inverso.euler;
+        }
+        else {
+            r_appr = typo.recto.approximation.slice(),
+            i_appr = typo.inverso.approximation.slice().reverse();
+            r_euler = typo.recto.euler;
+            i_euler = typo.inverso.euler * -1;
+        }
         let rct = {
-                euler: is_recto ? typo.recto.euler : typo.inverso.euler,
-                approximation: is_recto ? typo.recto.approximation.slice() : typo.inverso.approximation.slice(),
+                euler: r_euler,
+                approximation: r_appr,
                 temperament: is_recto ? typo.recto.temperament : typo.inverso.temperament,
             },
             inv = {
-                euler: is_recto ? (typo.inverso.euler * -1) : (typo.recto.euler * -1),
-                approximation: is_recto ? typo.inverso.approximation.slice().reverse() : typo.recto.approximation.slice().reverse(),
+                euler: i_euler,
+                approximation: i_appr,
                 temperament: is_recto ? typo.inverso.temperament : typo.recto.temperament,
             }
-        if (orig > 0) record = { up: rct, down: inv };
-        else record = { up: inv, down: rct };
+        if (is_pos ^ is_recto) record = { up: inv, down: rct };
+        else record =  { up: rct, down: inv };
     }
     return find ? record : null;
 }
