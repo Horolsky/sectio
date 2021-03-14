@@ -18,8 +18,6 @@ installArrayFuncs();
 import './components/_global/_register'
 import './registerServiceWorker'
 import Notifications from 'vue-notification'
-import Vue2TouchEvents from 'vue2-touch-events'
-Vue.use(Vue2TouchEvents)
 Vue.use(Notifications);
 
 

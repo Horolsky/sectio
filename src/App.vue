@@ -1,5 +1,12 @@
 <template>
   <v-app id="app">
+    <notifications 
+        classes="notification-vox"
+        group="vox" 
+        position="bottom left" 
+        :max="1" 
+        :ignoreDuplicates="true"
+      />
     <!-- App toolbar -->
     <v-app-bar app clipped-right color="blue-grey" dark>
       <!-- main menu -->
@@ -354,7 +361,14 @@ export default {
 .footer-bar {
   background-color: grey;
 }
-
+.notification-vox {
+  margin: 0 5px 5px;
+  padding: 10px;
+  font-size: 20px;
+  border-left: 5px solid purple;
+  background-color: #607D8B !important;
+  color:wheat !important;
+}
 /*
 .btn-group-btn-on .v-icon.theme--dark {
   color: white !important;

@@ -59,26 +59,51 @@ export default {
     blow() {
       this.voice.blow();
       this.btnClass = this.primaryClass + " lighten-4";
+      let msg = "";
+      if (this.scale) {
+        
+        let chordStruc = [0].concat(this.activeChord);
+        let chordL = chordStruc.length
+        let chordIDs = new Array(chordL);
+        let chordCodes = new Array(chordL);
+        
+        
+        for (let i = 0; i < chordL; i++) {
+          let id = (this.tone.base.id + chordStruc[i]) % this.scale.base.length;
+          chordIDs[i] = id;
+          chordCodes[i] = this.scale.base[id].code;
+        }
+        msg += chordCodes.join(', ');
+        let get_chord_ratios = this.$store.getters[`canon/get_chord_ratios`];
+        let relinfo = get_chord_ratios(chordIDs);
+        if (this.ratioViewMode < 2){
+          let ratios = [];
+          ratios[0] = 1;
+          
+          for (let i = 0; i < chordL-1; i++){
+            let mul = ratios[0];
+            ratios = ratios.map(el => el * relinfo[i].approximation[1]);
+            ratios[i+1] = relinfo[i].approximation[0] * mul;
+          }
+          let gcf = Math.Canonis.gcf(ratios);
+          ratios = ratios.map(el => el / gcf);
+          msg = `(${msg}): ${ratios.join(':')}`;
+        }
+        else {
+          msg = `(${msg}): ${relinfo.map(el => (el.euler * 1200).toFixed(2)).join(', ')}`;
+        }
+        
+      } 
+
+      this.$notify({
+        group: "vox",
+        text: msg
+      });
     },
     endBlow() {
       this.btnClass = this.primaryClass;
       this.voice.release();
-    },
-    getChord() {
-      if (this.scale) {
-        let chordStruc = [0].concat(this.activeChord);
-        let chordFreqs = [];
-        for (let i = 0; i < chordStruc.length; i++) {
-          let chordFreq = this.scale.full[this.id + chordStruc[i] - 1]
-            ? this.scale.full[this.id + chordStruc[i] - 1].freq
-            : null;
-          if (chordFreq) {
-            chordFreqs.push(chordFreq);
-          }
-        }
-        return chordFreqs;
-      } else return [];
-    },
+    }
   },
   created() {
     this.voice = this.$sound.createVoice();
