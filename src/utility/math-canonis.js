@@ -31,7 +31,17 @@ export const largestPrimeFactor = (x) => {
 
     return max;
 };
-export const greatestCommonFactor = (pair) => !pair[1] ? pair[0] : greatestCommonFactor([pair[1], pair[0] % pair[1]]);
+const _gcf = (a, b) => !b ? a : _gcf(b, a % b);
+export const gcf = (arr) => {
+    let result = arr[0]; 
+    for (let i = 1; i < arr.length; i++){ 
+        result = _gcf(arr[i], result); 
+        if(result == 1) return 1; 
+    } 
+    return result; 
+}
+
+//export const gcf = (pair) => !pair[1] ? pair[0] : gcf([pair[1], pair[0] % pair[1]]);
 export const simplifyRatio = (ratio) => {
     let gcf = (pair) => !pair[1] ? pair[0] : gcf([pair[1], pair[0] % pair[1]]);
     let factor = Math.abs(gcf(ratio));
@@ -257,7 +267,7 @@ export default {
     isPrime,
     getPrimes,
     getMixedFraction,
-    greatestCommonFactor,
+    gcf,
     unlimFractionAppr,
     getLimitedCombos,
     getLimitedRatioDict,
