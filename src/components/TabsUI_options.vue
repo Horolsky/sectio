@@ -19,7 +19,7 @@
         dark
       >
         <!-- -->
-        <RatioViewMode v-show="mode != 1" vertical backColor="blue-grey" />
+        <RatioViewMode vertical backColor="blue-grey" />
         <v-icon v-show="mode != 1" disabled color="grey">mdi-dots-horizontal</v-icon>
 
         <WaveToggler v-show="mode != 2" vertical backColor="blue-grey" />
