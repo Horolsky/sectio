@@ -61,6 +61,29 @@ export default {
       return [i_up, i_down]; //`<center>${i_up}&nbsp;&nbsp;//&nbsp;&nbsp;${i_down}</center>`;
       //possibly return array for reversion optiion
     },
+    get_temperament(temperament, comma){
+      let result = "";
+      if (Math.abs(temperament) > comma / 100) {
+        let temp = "";
+        temp = temp.concat(
+          temperament > 0 ? "+" : "-"
+        );
+        let mixed = Math.Canonis.getMixedFraction(
+          Math.Canonis.unlimFractionAppr(temperament / comma, 99)
+        );
+        if (mixed.integer != 0) temp = temp.concat(`${mixed.integer}`);
+        if (mixed.dividend != 0) {
+          temp = temp.concat(
+              mixed.dividend.toString().sup() +
+              "/" +
+              mixed.divisor.toString().sub()
+          );
+        }
+        result = result.concat(temp.sup());
+      }
+      return result;
+    }
+
   },
 };
 </script>
