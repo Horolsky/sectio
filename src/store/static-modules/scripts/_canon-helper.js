@@ -190,29 +190,33 @@ export function findApproximation(map, period, orig) {
         }
     }
     if (find) {
-        let r_appr, i_appr, r_euler, i_euler;
+        let r_appr, i_appr, r_euler, i_euler, r_temp, i_temp;
 
         if (is_pos ^ is_recto){
             r_appr = typo.recto.approximation.slice().reverse();
             i_appr = typo.inverso.approximation.slice();
             r_euler = typo.recto.euler * -1;
             i_euler = typo.inverso.euler;
+            r_temp = typo.recto.temperament;
+            i_temp = typo.inverso.temperament;
         }
         else {
             r_appr = typo.recto.approximation.slice(),
             i_appr = typo.inverso.approximation.slice().reverse();
             r_euler = typo.recto.euler;
             i_euler = typo.inverso.euler * -1;
+            r_temp = typo.inverso.temperament;
+            i_temp = typo.recto.temperament;
         }
         let rct = {
                 euler: r_euler,
                 approximation: r_appr,
-                temperament: is_recto ? typo.recto.temperament : typo.inverso.temperament,
+                temperament: r_temp
             },
             inv = {
                 euler: i_euler,
                 approximation: i_appr,
-                temperament: is_recto ? typo.inverso.temperament : typo.recto.temperament,
+                temperament: i_temp
             }
         if (is_pos ^ is_recto) record = { up: inv, down: rct };
         else record =  { up: rct, down: inv };
