@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import RatioViewer from "../mixins/RatioViewer";
+import CanonData from "../mixins/CanonData";
 export default {
   name: "HexKeyBtn",
   components: {
@@ -45,6 +47,7 @@ export default {
     keyCode: Number,
     //tone: Object
   },
+  mixins: [RatioViewer, CanonData],
   data: () => ({
     keyPressed: false,
     qwerty: false,
@@ -73,24 +76,30 @@ export default {
           chordIDs[i] = id;
           chordCodes[i] = this.scale.base[id].code;
         }
-        msg += chordCodes.join(', ');
+        msg += chordCodes.join(', ') + " ";
         let get_chord_ratios = this.$store.getters[`canon/get_chord_ratios`];
         let relinfo = get_chord_ratios(chordIDs);
         if (this.ratioViewMode < 2){
           let ratios = [];
           ratios[0] = 1;
-          
+          let temps = [];
+          temps[0] = 0;
           for (let i = 0; i < chordL-1; i++){
             let mul = ratios[0];
             ratios = ratios.map(el => el * relinfo[i].approximation[1]);
             ratios[i+1] = relinfo[i].approximation[0] * mul;
+            temps[i+1] = -relinfo[i].temperament;
           }
-          let gcf = Math.Canonis.gcf(ratios);
-          ratios = ratios.map(el => el / gcf);
-          msg = `(${msg}): ${ratios.join(':')}`;
+          ratios = ratios.map(el => el / Math.Canonis.gcf(ratios));
+          for (let i = 0; i < chordL; i++){
+            ratios[i] = `${ratios[i]}${this.get_temperament(
+              temps[i], this.comma
+            )}`
+          }
+          msg = `${msg} ${ratios.join(':')}`;
         }
         else {
-          msg = `(${msg}): ${relinfo.map(el => (el.euler * 1200).toFixed(2)).join(', ')}`;
+          msg = `${msg} ${relinfo.map(el => (el.euler * 1200).toFixed(2)).join(', ')}`;
         }
         
       } 
