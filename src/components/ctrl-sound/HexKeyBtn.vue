@@ -60,30 +60,20 @@ export default {
   }),
   methods: {
     blow() {
-      /*eslint-disable no-console*/
       this.voice.blow();
       this.btnClass = this.primaryClass + " lighten-4";
       let msg = "";
       if (this.scale) {
-        
         let chordStruc = [0].concat(this.activeChord);
-        let chordL = chordStruc.length
-        let chordIDs = new Array(chordL);
-        let chordCodes = new Array(chordL);
+        let chordIDs = [];//new Array(chordL);
+        let chordCodes = [];//new Array(chordL);
         
-        for (let i = 0; i < chordL; i++) {
+        for (let i = 0; i < chordStruc.length; i++) {
             let id = (this.id + chordStruc[i])
-            chordIDs[i] = this.scale.full[id].base.id;
-            chordCodes[i] = this.scale.full[id].base.code;
+            if (!this.scale.full[id]) break;
+            chordIDs.push(this.scale.full[id].base.id);
+            chordCodes.push(this.scale.full[id].base.code);
         }
-        console.log({
-          id: this.id,
-          scale: this.scale,
-          tone: this.tone,
-          chordStruc,
-          chordIDs,
-          chordCodes
-        })
         msg += chordCodes.join(', ') + " ";
         let get_chord_ratios = this.$store.getters[`canon/get_chord_ratios`];
         let relinfo = get_chord_ratios(chordIDs);
@@ -92,14 +82,14 @@ export default {
           ratios[0] = 1;
           let temps = [];
           temps[0] = 0;
-          for (let i = 0; i < chordL-1; i++){
+          for (let i = 0; i < relinfo.length; i++){
             let mul = ratios[0];
             ratios = ratios.map(el => el * relinfo[i].approximation[1]);
             ratios[i+1] = relinfo[i].approximation[0] * mul;
             temps[i+1] = -relinfo[i].temperament;
           }
           ratios = ratios.map(el => el / Math.Canonis.gcf(ratios));
-          for (let i = 0; i < chordL; i++){
+          for (let i = 0; i < relinfo.length; i++){
             ratios[i] = `${ratios[i]}${this.get_temperament(
               temps[i], this.comma
             )}`
