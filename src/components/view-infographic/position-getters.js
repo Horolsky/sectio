@@ -35,12 +35,10 @@ export function getChartBtns(scale, data, map_color, period) {
             btns[i] = { id, position };
         }
     } else {
-        let maxRtr = //Object.values(s_rtr)
-            data.keys.map(key => data[key].rtr)
-            .filter((el) => !isNaN(el))
-            .reduce(function(a, b) {
-                return Math.max(a, b);
-            });
+        let maxRtr = 0;
+        for (let key in data){
+            maxRtr = data[key].rtr > maxRtr ? data[key].rtr : maxRtr;
+        }
         for (let i = 0; i < scale.length; i++) {
             let id = scale[i],
                 position = [(data[id].rtr * 100) / maxRtr, 50];

@@ -181,7 +181,7 @@ export function findApproximation(map, period, orig) {
     //let val = Math.abs(orig);
     let is_pos = orig >= 0;
     let is_recto = period ? period / 2 > Math.abs(orig) : false;
-    let val = is_recto ? Math.abs(orig) : period - Math.abs(orig);
+    let val = is_recto ? period - Math.abs(orig) : Math.abs(orig);
     let typo;
     for (let i = 0; i < map.length; i++) {
         if (Math.abs(val - map[i].recto.euler) < (precision)) {
