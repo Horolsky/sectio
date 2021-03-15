@@ -6,15 +6,14 @@
           <div :style="`margin-right: ${(step / 2) * row}px`"></div>
           <HexKeyBtn
             v-for="col in columns"
-            :key="col"
-            :ref="`keybtn_${row + 1}x${col}`"
+            :key="col-1"
             :diameter="diameter"
             :interval="margin"
             :fontSize="fontSize"
-            :row="row + 1"
-            :col="col"
-            :id="getId(row + 1, col)"
-            :keyCode="getKeyCode(row + 1, col)"
+            :row="row"
+            :col="col-1"
+            :id="getId(row, col-1)"
+            :keyCode="getKeyCode(row, col-1)"
             :active="active"
           />
         </v-row>
@@ -139,13 +138,13 @@ export default {
   watch: {},
   methods: {
     getId(row, col) {
-      let id = this.keyb.length * (col - 1) + row;
-      if (id === 34) id = 33;
+      let id = this.keyb.length * col + row;
+      if (id === 33) id = 32;
       return id;
     },
     getKeyCode(row, col) {
       let id = this.getId(row, col);
-      return this.toneCodes[id - 1];
+      return this.toneCodes[id];
     },
   },
 };

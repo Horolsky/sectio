@@ -60,6 +60,7 @@ export default {
   }),
   methods: {
     blow() {
+      /*eslint-disable no-console*/
       this.voice.blow();
       this.btnClass = this.primaryClass + " lighten-4";
       let msg = "";
@@ -70,16 +71,23 @@ export default {
         let chordIDs = new Array(chordL);
         let chordCodes = new Array(chordL);
         
-        
         for (let i = 0; i < chordL; i++) {
-          let id = (this.tone.base.id + chordStruc[i]) % this.scale.base.length;
-          chordIDs[i] = id;
-          chordCodes[i] = this.scale.base[id].code;
+            let id = (this.id + chordStruc[i])
+            chordIDs[i] = this.scale.full[id].base.id;
+            chordCodes[i] = this.scale.full[id].base.code;
         }
+        console.log({
+          id: this.id,
+          scale: this.scale,
+          tone: this.tone,
+          chordStruc,
+          chordIDs,
+          chordCodes
+        })
         msg += chordCodes.join(', ') + " ";
         let get_chord_ratios = this.$store.getters[`canon/get_chord_ratios`];
         let relinfo = get_chord_ratios(chordIDs);
-        if (this.ratioViewMode < 2){
+        if (this.ratioViewMode != 1){
           let ratios = [];
           ratios[0] = 1;
           let temps = [];
@@ -133,7 +141,7 @@ export default {
       }
     },
     tone: function() {
-      return this.scale ? this.scale.full[this.id - 1] : undefined;
+      return this.scale ? this.scale.full[this.id] : undefined;
     },
     color: function() {
       if (this.tone) {
@@ -145,8 +153,8 @@ export default {
         let chordStruc = [0].concat(this.activeChord);
         let chordFreqs = [];
         for (let i = 0; i < chordStruc.length; i++) {
-          let chordFreq = this.scale.full[this.id + chordStruc[i] - 1]
-            ? this.scale.full[this.id + chordStruc[i] - 1].freq
+          let chordFreq = this.scale.full[this.id + chordStruc[i]]
+            ? this.scale.full[this.id + chordStruc[i]].freq
             : null;
           if (chordFreq) {
             chordFreqs.push(chordFreq);
