@@ -140,7 +140,17 @@ export default {
             let limit = schema.params.limit ? schema.params.limit : undefined;
             let range = schema.params.range ? schema.params.range : 1000;
             let period = schema.params.period; //? schema.params.period : 1;
+            if (isNaN(period)) {
+                if (Array.isArray(period) && period.length == 2)
+                period = Math.log2(period[0] / period[1]);
+                else period = 0;
+            }
             let comma = schema.params.comma ? schema.params.comma : Math.log2(81 / 80);
+            if (isNaN(comma)) {
+                if (Array.isArray(comma) && comma.length == 2)
+                comma = Math.log2(comma[0] / comma[1]);
+                else comma = 0;
+            }
 
             state.params = { limit, range, period, comma };
             state.dict_ratio = Helper.buildRatioDict(limit, range);
