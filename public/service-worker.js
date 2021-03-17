@@ -17,7 +17,7 @@
    "/precache-manifest.42eaa1d67bcc35eee4e1620e31803da3.js"
  );
  
- var cacheName = 'sectio-canonis-v0.2.0';
+ var cacheName = 'sectio-canonis-v0.2.1';
  
  self.addEventListener('install', function (event) {
    event.waitUntil(
