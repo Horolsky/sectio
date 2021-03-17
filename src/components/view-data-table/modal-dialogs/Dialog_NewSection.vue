@@ -219,9 +219,12 @@ export default {
 
       let temperament;
       if (this.ratioViewMode == 0) {
-        temperament =
-          (Math.Canonis.comma * this.editedTemperament[0]) /
-          this.editedTemperament[1];
+        if (this.editedTemperament[0] * this.editedTemperament[1] == 0) temperament = 0;
+          else {
+            temperament =
+              (Math.Canonis.comma * this.editedTemperament[0]) /
+              this.editedTemperament[1];
+          }
       } else if (this.ratioViewMode == 2) {
         temperament = this.editedTemperament / 1200;
       } else temperament = 0;

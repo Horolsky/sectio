@@ -51,7 +51,7 @@
       </v-col>
     </v-row>
     <v-row style="font-size: 90%; padding-left: 12px; margin-top: 2px;">
-      <v-card flat>{{ hint }}</v-card>
+      <v-card flat v-html="hint"></v-card>
     </v-row>
   </v-col>
 </template>

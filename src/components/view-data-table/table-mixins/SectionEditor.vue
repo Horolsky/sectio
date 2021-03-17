@@ -9,14 +9,11 @@ export default {
         if (mixed.integer != 0) temp = temp.concat(` ${mixed.integer}`);
         if (mixed.dividend != 0) {
           temp = temp.concat(
-            " " +
-              mixed.dividend.toString().sup() +
-              "/" +
-              mixed.divisor.toString().sub()
+            ` ${mixed.dividend.toString().sup()}/${mixed.divisor.toString().sub()}`
           );
         }
         if (temp != "")
-          temp = (mixed.sign > 0 ? " + " : " - ").concat(temp).concat(" ϰ"); //𝛞 ϰ &#120542;
+          temp = (mixed.sign > 0 ? " + " : " - ").concat(temp).concat(" k"); //𝛞 ϰ &#120542;
         return temp;
       } else return "";
     },
