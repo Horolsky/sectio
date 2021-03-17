@@ -15,7 +15,7 @@
         icon="mdi-menu"
         :hintText="drawer_L ? 'close menu' : 'open menu'"
       />
-      <v-toolbar-title>Sectio Canonis 0.1 Alpha</v-toolbar-title>
+      <v-toolbar-title>Sectio Canonis Web 0.2 </v-toolbar-title>
       <v-spacer />
 
       <!-- dataViewMode  activator -->
