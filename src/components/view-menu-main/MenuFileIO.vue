@@ -80,8 +80,7 @@
             <v-select
               v-model="outputCanon"
               :items="canons"
-              item-text="code"
-              item-value="id"
+              
             ></v-select>
             <v-btn icon @click.stop="saveLocalSchema(outputCanon)">
               <v-icon>mdi-content-save-outline</v-icon>
@@ -109,9 +108,12 @@
           <v-select
             v-model="outputCanon"
             :items="canons"
+            
+          ></v-select>
+          <!-- 
             item-text="code"
             item-value="id"
-          ></v-select>
+          -->
           <v-btn
             link
             :download="outputFileName"
@@ -147,8 +149,12 @@ export default {
     this.initialize();
   },
   computed: {
-    canons: function() {
-      return this.$store.getters["canons"];
+    canons: {
+      get() {
+        let cns = this.$store.state.tabsData.canons.slice();
+        return cns.map((el, i) => Object({value: i, text: el}));
+      },
+      set() {},
     },
     schemataLocalRegister: function() {
       return this.$localStorage.state.schemataRegister;
@@ -190,12 +196,13 @@ export default {
       }
       this.importDialog = false;
     },
-    outputCanon(savedCanon) {
-      let schema = this.$store.getters[`${savedCanon}/GET_SCHEMA`];
+    outputCanon(id) {
+      let schema = this.$localStorage.state.getCanon(id);
+      //let schema = this.$store.getters[`${savedCanon}/GET_SCHEMA`];
 
       let encodedData = JSON.stringify(schema);
       const blob = new Blob([encodedData], { type: "text/plain" });
-      this.outputFileName = schema.code + ".canon";
+      this.outputFileName = this.canons[id].text + ".canon";
       this.outputURL = window.URL.createObjectURL(blob);
     },
   },
