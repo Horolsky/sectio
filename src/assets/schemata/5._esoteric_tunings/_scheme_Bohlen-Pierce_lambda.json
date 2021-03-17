@@ -1,0 +1,78 @@
+{
+    "name": "Bohlen-Pierce Lambda",
+    "code": "bohlen",
+    "description": "",
+    "baseFreq": 130,
+    "baseStrL": 1200,
+    "params": {
+        "limit": null,
+        "range": 1000,
+        "period": [3,1],
+        "comma": 0.017921907997262315
+    },
+    "sections": [
+        {
+            "id": 0,
+            "name": "C",
+            "code": "C",
+            "parent": null,
+            "rtp": 0
+        },
+        {
+            "id": 2,
+            "name": "D",
+            "code": "D",
+            "parent": 0,
+            "rtp": [25,21]
+        },
+        {
+            "id": 4,
+            "name": "E",
+            "code": "E",
+            "parent": 0,
+            "rtp": [9,7]
+        },
+        {
+            "id": 5,
+            "name": "F",
+            "code": "F",
+            "parent": 0,
+            "rtp": [7,5]
+        },
+        {
+            "id": 7,
+            "name": "G",
+            "code": "G",
+            "parent": 0,
+            "rtp": [5,3]
+        },
+        {
+            "id": 9,
+            "name": "H",
+            "code": "H",
+            "parent": 0,
+            "rtp": [9,5]
+        },
+        {
+            "id": 11,
+            "name": "J",
+            "code": "J",
+            "parent": 0,
+            "rtp": [15,7]
+        },
+        {
+            "id": 12,
+            "name": "A",
+            "code": "A",
+            "parent": 0,
+            "rtp": [7,3]
+        },
+        {
+            "id": 13,
+            "name": "B",
+            "code": "B",
+            "parent": 0,
+            "rtp": [25,9]
+        }
+    ]
+}
