@@ -10,6 +10,7 @@
       color="rgba(0, 0, 0, 0)"
       floating
       temporary
+      style="width: 90px;"
     >
       <v-card
         flat
