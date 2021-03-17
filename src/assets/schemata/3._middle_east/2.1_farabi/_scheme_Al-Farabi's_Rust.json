@@ -1,7 +1,7 @@
 {
-    "name": "Al'Farabi's \"Zalzal\"",
-    "code": "Farabi_Zalzal",
-    "description": "",
+    "name": "Rast",
+    "code": "rust",
+    "description": "Al'Farabi's \"Zalzal\", equal to Rust maqam",
     "baseFreq": 200,
     "baseStrL": 1200,
     "params": {
