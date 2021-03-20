@@ -24,15 +24,15 @@ let state = {
             key++;
         }
         key = `LS-${key}`;
-
+        let canon = JSON.parse(schema);
         localStorage.setItem(key, schema);
         //REGISTRATION
         let LS_Reg = JSON.parse(localStorage.getItem('schemataRegister'));
         if (!Array.isArray(LS_Reg)) LS_Reg = [];
         LS_Reg.push({
             key: key,
-            code: schema.code,
-            name: schema.name,
+            code: canon.code,
+            name: canon.name,
             date: new Date().toLocaleString()
         });
         localStorage.setItem('schemataRegister', JSON.stringify(LS_Reg));
