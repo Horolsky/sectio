@@ -25,7 +25,7 @@ let state = {
         }
         key = `LS-${key}`;
 
-        localStorage.setItem(key, JSON.stringify(schema));
+        localStorage.setItem(key, schema);
         //REGISTRATION
         let LS_Reg = JSON.parse(localStorage.getItem('schemataRegister'));
         if (!Array.isArray(LS_Reg)) LS_Reg = [];

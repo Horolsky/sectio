@@ -168,7 +168,7 @@ export default {
       this.storageDialog = false;
     },
     saveLocalSchema(canonID) {
-      let schema = this.$store.getters[`${canonID}/GET_SCHEMA`];
+      let schema = this.$localStorage.state.getCanon(canonID);
       this.$localStorage.state.setSchema(schema);
     },
     removeLocalSchema(key) {
