@@ -198,10 +198,7 @@ export default {
     },
     outputCanon(id) {
       let schema = this.$localStorage.state.getCanon(id);
-      //let schema = this.$store.getters[`${savedCanon}/GET_SCHEMA`];
-
-      let encodedData = JSON.stringify(schema);
-      const blob = new Blob([encodedData], { type: "text/plain" });
+      const blob = new Blob([schema], { type: "text/plain" });
       this.outputFileName = this.canons[id].text + ".canon";
       this.outputURL = window.URL.createObjectURL(blob);
     },
