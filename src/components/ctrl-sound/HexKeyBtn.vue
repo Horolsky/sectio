@@ -86,18 +86,20 @@ export default {
             let mul = ratios[0];
             ratios = ratios.map(el => el * relinfo[i].approximation[1]);
             ratios[i+1] = relinfo[i].approximation[0] * mul;
-            temps[i+1] = -relinfo[i].temperament;
+            temps[i+1] = relinfo[i].temperament;
           }
           ratios = ratios.map(el => el / Math.Canonis.gcf(ratios));
-          for (let i = 0; i < relinfo.length; i++){
-            ratios[i] = `${ratios[i]}${this.get_temperament(
-              temps[i], this.comma
-            )}`
+          for (let i = 0; i < ratios.length; i++){
+            let r = ratios[i];
+            let t = temps[i]
+            ratios[i] = `${r}${this.get_temperament(
+              t, this.comma
+            )}`;
           }
-          msg = `${msg} ${ratios.join(':')}`;
+          msg = `${msg} | ${ratios.join(':')}`;
         }
         else {
-          msg = `${msg} ${relinfo.map(el => (el.euler * 1200).toFixed(2)).join(', ')}`;
+          msg = `${msg} | ${relinfo.map(el => (el.euler * 1200).toFixed(2)).join(', ')}`;
         }
         
       } 
