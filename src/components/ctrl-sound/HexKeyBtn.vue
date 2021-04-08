@@ -67,7 +67,7 @@ export default {
         let chordStruc = [0].concat(this.activeChord);
         let chordIDs = [];//new Array(chordL);
         let chordCodes = [];//new Array(chordL);
-        
+        chordStruc.sort();
         for (let i = 0; i < chordStruc.length; i++) {
             let id = (this.id + chordStruc[i])
             if (!this.scale.full[id]) break;
