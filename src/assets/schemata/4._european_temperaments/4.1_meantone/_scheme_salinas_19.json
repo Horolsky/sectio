@@ -1,0 +1,148 @@
+{
+    "name": "F. Salinas 1/3 comma 19-tone meantone",
+    "code": "Salinas 19",
+    "description": "",
+    "baseFreq": "130",
+    "baseStrL": 1200,
+    "params": {
+        "limit": 5,
+        "range": 125,
+        "period": 1,
+        "comma": 0.017921907997262315
+    },
+    "sections": [
+        {
+            "id": 0,
+            "name": "C",
+            "code": "C",
+            "parent": null,
+            "rtp": 0
+        },
+        {
+            "id": 1,
+            "name": "C#/Dbb",
+            "code": "C#",
+            "parent": 0,
+            "rtp": [25,24]
+        },
+        {
+            "id": 2,
+            "name": "Cx/Db",
+            "code": "Db",
+            "parent": 0,
+            "rtp": [16,15]
+        },
+        {
+            "id": 3,
+            "name": "D",
+            "code": "D",
+            "parent": 0,
+            "rtp": [9,8]
+        },
+        {
+            "id": 4,
+            "name": "D#/Ebb",
+            "code": "D#",
+            "parent": 0,
+            "rtp": [75,64]
+        },
+        {
+            "id": 5,
+            "name": "Dx/Eb",
+            "code": "Eb",
+            "parent": 0,
+            "rtp": [6,5]
+        },
+        {
+            "id": 6,
+            "name": "E",
+            "code": "E",
+            "parent": 0,
+            "rtp": [5,4]
+        },
+        {
+            "id": 7,
+            "name": "E#/Fb",
+            "code": "E#",
+            "parent": 0,
+            "rtp": [125,96]
+        },
+        {
+            "id": 8,
+            "name": "F",
+            "code": "F",
+            "parent": 0,
+            "rtp": [4,3]
+        },
+        {
+            "id": 9,
+            "name": "F#/Gbb",
+            "code": "F#",
+            "parent": 0,
+            "rtp": [25,18]
+        },
+        {
+            "id": 10,
+            "name": "Fx/Gb",
+            "code": "Gb",
+            "parent": 0,
+            "rtp": [64,45]
+        },
+        {
+            "id": 11,
+            "name": "G",
+            "code": "G",
+            "parent": 0,
+            "rtp": [3,2]
+        },
+        {
+            "id": 12,
+            "name": "G#/Abb",
+            "code": "G#",
+            "parent": 0,
+            "rtp": [25,16]
+        },
+        {
+            "id": 13,
+            "name": "Gx/Ab",
+            "code": "Ab",
+            "parent": 0,
+            "rtp": [8,5]
+        },
+        {
+            "id": 14,
+            "name": "A",
+            "code": "A",
+            "parent": 0,
+            "rtp": [5,3]
+        },
+        {
+            "id": 15,
+            "name": "A#/Bbb",
+            "code": "A#",
+            "parent": 0,
+            "rtp": [125,72]
+        },
+        {
+            "id": 16,
+            "name": "Ax/Bb",
+            "code": "Bb",
+            "parent": 0,
+            "rtp": [16,9]
+        },
+        {
+            "id": 17,
+            "name": "B",
+            "code": "B",
+            "parent": 0,
+            "rtp": [15,8]
+        },
+        {
+            "id": 18,
+            "name": "B#/Cb",
+            "code": "B#",
+            "parent": 0,
+            "rtp": [125,64]
+        }
+    ]
+}
