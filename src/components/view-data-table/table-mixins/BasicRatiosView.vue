@@ -43,39 +43,39 @@ export default {
     },
     w_rtp_ptolemaic: function() {
       let info = this.$store.getters[`canon/GET_PROPERTY`]("s_relInfo")[
-        this.sectionID
-      ][this.parentID];
-      return this.getView_Ptolemaic(info.down, this.comma);
+        this.parentID
+      ][this.sectionID];
+      return this.getView_Ptolemaic(info.up, this.comma);
     },
     w_rtp_ellis: function() {
       let info = this.$store.getters[`canon/GET_PROPERTY`]("s_relInfo")[
-        this.sectionID
-      ][this.parentID];
-      return this.getView_Ellis(info.down);
+        this.parentID
+      ][this.sectionID];
+      return this.getView_Ellis(info.up);
     },
     w_rtp_mixed: function() {
       let info = this.$store.getters[`canon/GET_PROPERTY`]("s_relInfo")[
-        this.sectionID
-      ][this.parentID];
-      return this.getView_Mixed(info.down, this.comma);
+        this.parentID
+      ][this.sectionID];
+      return this.getView_Mixed(info.up, this.comma);
     },
     w_rtr_ptolemaic: function() {
       let info = this.$store.getters[`canon/GET_PROPERTY`]("s_relInfo")[
-        this.sectionID
-      ][0];
-      return this.getView_Ptolemaic(info.down, this.comma);
+        0
+      ][this.sectionID];
+      return this.getView_Ptolemaic(info.up, this.comma);
     },
     w_rtr_ellis: function() {
       let info = this.$store.getters[`canon/GET_PROPERTY`]("s_relInfo")[
-        this.sectionID
-      ][0];
-      return this.getView_Ellis(info.down);
+        0
+      ][this.sectionID];
+      return this.getView_Ellis(info.up);
     },
     w_rtr_mixed: function() {
       let info = this.$store.getters[`canon/GET_PROPERTY`]("s_relInfo")[
-        this.sectionID
-      ][0];
-      return this.getView_Mixed(info.down, this.comma);
+        0
+      ][this.sectionID];
+      return this.getView_Mixed(info.up, this.comma);
     },
   },
 };

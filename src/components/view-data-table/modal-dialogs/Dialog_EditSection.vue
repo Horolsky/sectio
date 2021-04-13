@@ -222,7 +222,7 @@ export default {
 
         let infoRTP = Object.assign(
           {},
-          this.s_relInfo[this.sectionID][this.editedParentID].down
+          this.s_relInfo[this.editedParentID][this.sectionID].up
         );
 
         this.editedRTP =

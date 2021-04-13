@@ -149,17 +149,17 @@ export default {
       return trgts;
     },
     w_rtt_ptolemaic: function() {
-      let info = this.s_relInfo[this.sectionID][this.relationTarget];
+      let info = this.s_relInfo[this.relationTarget][this.sectionID];
       let ptol = this.getView_FullPtolemaic(info, this.comma);
       return this.period ? ptol.join("&nbsp;&nbsp;//&nbsp;&nbsp;") : ptol[0];
     },
     w_rtt_ellis: function() {
-      let info = this.s_relInfo[this.sectionID][this.relationTarget];
+      let info = this.s_relInfo[this.relationTarget][this.sectionID];
       let ellis = this.getView_FullEllis(info);
       return this.period ? ellis.join("&nbsp;&nbsp;//&nbsp;&nbsp;") : ellis[0];
     },
     w_rtt_mixed: function() {
-      let info = this.s_relInfo[this.sectionID][this.relationTarget];
+      let info = this.s_relInfo[this.relationTarget][this.sectionID];
       let mixed = this.getView_FullMixed(info, this.comma);
       return this.period ? mixed.join("&nbsp;&nbsp;//&nbsp;&nbsp;") : mixed[0];
     },

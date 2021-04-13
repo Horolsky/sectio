@@ -182,9 +182,9 @@ export default {
       if (this.editedParentID > 0) {
         infoRTP = Object.assign(
           {},
-          this.s_relInfo[this.editedParentID][
-            this.sec_data[this.editedParentID].parent
-          ].down
+          this.s_relInfo[this.sec_data[this.editedParentID].parent][
+            this.editedParentID
+          ].up
         );
       } else {
         infoRTP = {
