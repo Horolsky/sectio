@@ -1,12 +1,12 @@
 {
-    "name": "F. Salinas 1/3 comma 19-tone meantone",
+    "name": "F. Salinas 19-tone",
     "code": "Salinas 19",
-    "description": "",
-    "baseFreq": "130",
+    "description": "Salinas enharmonic tuning for his 19-tone instrumentum imperfectum",
+    "baseFreq": 130,
     "baseStrL": 1200,
     "params": {
         "limit": 5,
-        "range": 125,
+        "range": 5625,
         "period": 1,
         "comma": 0.017921907997262315
     },

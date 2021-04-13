@@ -1,1 +1,65 @@
-{"name":"Aron's 1/4 comma C maj","code":"meantone","description":"","baseFreq":"130","baseStrL":1200,"params":{"limit":5,"range":24,"period":1,"comma":0.017921907997262315},"sections":[{"id":0,"name":"C","code":"C","parent":null,"rtp":0},{"id":1,"name":"E","code":"E","parent":0,"rtp":0.32192809488736235},{"id":2,"name":"G","code":"G","parent":0,"rtp":0.5804820237218407},{"id":3,"name":"D","code":"D","parent":2,"rtp":0.5804820237218407},{"id":4,"name":"A","code":"A","parent":3,"rtp":0.5804820237218407},{"id":5,"name":"F","code":"F","parent":0,"rtp":0.41503749927884376},{"id":6,"name":"H","code":"H","parent":2,"rtp":0.32192809488736235}]}
+{
+    "name": "Aron's 1/4 comma C maj",
+    "code": "meantone",
+    "description": "",
+    "baseFreq": 130,
+    "baseStrL": 1200,
+    "params": {
+        "limit": 5,
+        "range": 45,
+        "period": 1,
+        "comma": 0.017921907997262315
+    },
+    "sections": [
+        {
+            "id": 0,
+            "name": "C",
+            "code": "C",
+            "parent": null,
+            "rtp": 0
+        },
+        {
+            "id": 1,
+            "name": "E",
+            "code": "E",
+            "parent": 0,
+            "rtp": 0.32192809488736235
+        },
+        {
+            "id": 2,
+            "name": "G",
+            "code": "G",
+            "parent": 0,
+            "rtp": 0.5804820237218407
+        },
+        {
+            "id": 3,
+            "name": "D",
+            "code": "D",
+            "parent": 2,
+            "rtp": 0.5804820237218407
+        },
+        {
+            "id": 4,
+            "name": "A",
+            "code": "A",
+            "parent": 3,
+            "rtp": 0.5804820237218407
+        },
+        {
+            "id": 5,
+            "name": "F",
+            "code": "F",
+            "parent": 0,
+            "rtp": 0.41951797627815934
+            
+        },
+        {
+            "id": 6,
+            "name": "H",
+            "code": "H",
+            "parent": 2,
+            "rtp": 0.32192809488736235
+        }
+    ]
+}
