@@ -30,8 +30,9 @@
                       >V</v-checkbox
                     >
                   </th>
-                  <th class="text-center" style="width: 50%">Ratio</th>
-                  <th class="text-center" style="width: 50%">Primes</th>
+                  <th class="text-left" style="width: 50%">Ratio</th>
+                  <th class="text-left" style="width: 50%">Cents</th>
+                  <th class="text-left" style="width: 50%">Quantity</th>
                   <!--<th class="text-left pairs">Section pairs</th>-->
                 </tr>
               </thead>
@@ -40,7 +41,10 @@
                   <td>
                     <v-checkbox dense v-model="tabInt.active" />
                   </td>
-                  <td v-html="[tabInt.ratio,tabInt.mixed,tabInt.cents][ratioViewMode]" />
+                  <!--<td v-html="[tabInt.ratio,tabInt.mixed,tabInt.cents][ratioViewMode]" />-->
+                  <td v-html="ratioViewMode == 1 ? tabInt.mixed : tabInt.ratio" />
+                  <td v-html="tabInt.cents" />
+                  <td v-html="tabInt.number" />
                 </tr>
               </tbody>
             </template>
@@ -125,15 +129,17 @@ export default {
         //let pairs = intvs[i].pairs,
         let recto = intvs[i].recto.euler,
           info = findApproximation(recto).up,
-          ptol = this.getView_Ptolemaic(info, this.comma),
-          ellis = this.getView_Ellis(info),
-          mixed = this.getView_Mixed(info, this.comma);
+          ratio = this.getView_Ptolemaic(info, this.comma),
+          cents = this.getView_Ellis(info),
+          mixed = this.getView_Mixed(info, this.comma),
+          number = intvs[i].pairs.length / 2;
 
         table[i - 1] = {
-          recto: recto,
-          ratio: ptol,
-          cents: ellis,
-          mixed: mixed,
+          recto,
+          ratio,
+          cents,
+          mixed,
+          number,
           //pairs: this.getPairs(pairs),
           get active() {
             return vue.chart_intervals.find((el) => el.recto == recto).active;
@@ -216,7 +222,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .pairs {
   text-overflow: ellipsis;
   overflow: hidden;

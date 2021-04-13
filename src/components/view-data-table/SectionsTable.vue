@@ -134,9 +134,8 @@ export default {
 </script>
 
 <style>
-.v-data-table-header-mobile {
-  /**/
-}
+/*.v-data-table-header-mobile {
+}*/
 .v-data-table__mobile-table-row {
   display: -webkit-inline-box !important;
   width: 100%;
