@@ -6,7 +6,7 @@
     "baseStrL": 1200,
     "params": {
         "limit": 5,
-        "range": 45,
+        "range": 64,
         "period": 1,
         "comma": 0.017921907997262315
     },

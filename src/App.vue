@@ -231,7 +231,7 @@ export default {
       baseStrL: 1200,
       params: {
         limit: 5,
-        range: 24,
+        range: 64,
         period: 1,
       },
       sections: [
