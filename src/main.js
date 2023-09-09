@@ -20,7 +20,7 @@ import './registerServiceWorker'
 import Notifications from 'vue-notification'
 Vue.use(Notifications);
 
-
+Vue.config.devtools = true
 Vue.config.productionTip = false;
 
 
