@@ -10,7 +10,7 @@ export default function install() {
         if (!array)
             return false;
 
-        // compare lengths - can save a lot of time 
+        // compare lengths - can save a lot of time
         if (this.length != array.length)
             return false;
 

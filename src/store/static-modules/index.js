@@ -6,7 +6,7 @@ const modules = {}
 
 requireModule.keys().forEach(fileName => {
     if (fileName === './index.js') return
-    // filter fullstops and extension 
+    // filter fullstops and extension
     // and return a camel-case name for the file
     const moduleName = camelCase(
         fileName.replace(/(\.\/|\.js)/g, '')//.replace('module')

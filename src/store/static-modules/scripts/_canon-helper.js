@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import dictCache from './_cache-ratioDicts'
-import { binFloatingSearch } from '../../../utility/math-canonis';
+import { binFloatingSearch } from '../../../core/math-canonis';
 const precision = 10 ** -12;
 export function findPair(pairs, pair) {
     let index = -1
@@ -31,7 +31,7 @@ export function synchronisePairs(record, inversion) {
 }
 export function buildMaps(data, period) {
     let relations = new Object(null);
-    let intervals = []; //[{pairs:[], euler:[]||num }]    
+    let intervals = []; //[{pairs:[], euler:[]||num }]
 
     for (let a = 0; a < data.length; a++) {
         let idA = data.keys[a];
@@ -108,7 +108,7 @@ export function buildMaps(data, period) {
             harmSum_r = harmSum_r + (1 / uncalc[i].recto[y]);
             harmSum_i = harmSum_i + (1 / uncalc[i].inverso[y]);
         }
-        uncalc[i].recto = uncalc[i].recto.length / harmSum_r; // harmonic average             
+        uncalc[i].recto = uncalc[i].recto.length / harmSum_r; // harmonic average
         uncalc[i].inverso = uncalc[i].inverso.length / harmSum_i;
     }
     return { relations, intervals };
@@ -240,7 +240,7 @@ export function getScale(data, pitches, period, baseFreq, diapason = { bottom: 8
     let full = [];
     //for base
     let precision = 0.000000000000001; // for binary arithmetic deviation
-    //getting rtp margin values for full scale     
+    //getting rtp margin values for full scale
     let lowerLimit = Math.log2(diapason.bottom / baseFreq);
     let upperLimit = Math.log2(diapason.top / baseFreq);
 
@@ -265,7 +265,7 @@ export function getScale(data, pitches, period, baseFreq, diapason = { bottom: 8
             }
         }
     }
-    //full scale    
+    //full scale
     if (period) {
         for (let i = 0; i < base.length; i++) {
 

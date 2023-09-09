@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import Vue from 'vue';
-import Vox from "../utility/vox-class";
+import Vox from "../core/vox-class";
 
 let privateProps = {
     _Context: undefined,

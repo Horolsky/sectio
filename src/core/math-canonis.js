@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 export const comma = Math.log2(1.0125);
-export const primes = [undefined, 2, 3, 5, 7, 11, 13, 17];//, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
-const commaticFactors = 100;//[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 18, 20, 21, 22, 24, 25, 27, 28, 30, 32, 33, 35, 36, 40, 42, 44, 45, 48, 49, 50, 54, 55, 56, 60, 63, 64, 66, 70, 72, 75, 77, 80, 81, 84, 88, 90, 96, 98, 99];
+export const primes = [undefined, 2, 3, 5, 7, 11, 13, 17];
+const commaticFactors = 100;
 const defaultFactors = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 
 
@@ -33,15 +33,14 @@ export const largestPrimeFactor = (x) => {
 };
 const _gcf = (a, b) => !b ? a : _gcf(b, a % b);
 export const gcf = (arr) => {
-    let result = arr[0]; 
-    for (let i = 1; i < arr.length; i++){ 
-        result = _gcf(arr[i], result); 
-        if(result == 1) return 1; 
-    } 
-    return result; 
+    let result = arr[0];
+    for (let i = 1; i < arr.length; i++){
+        result = _gcf(arr[i], result);
+        if(result == 1) return 1;
+    }
+    return result;
 }
 
-//export const gcf = (pair) => !pair[1] ? pair[0] : gcf([pair[1], pair[0] % pair[1]]);
 export const simplifyRatio = (ratio) => {
     let gcf = (pair) => !pair[1] ? pair[0] : gcf([pair[1], pair[0] % pair[1]]);
     let factor = Math.abs(gcf(ratio));
@@ -67,20 +66,8 @@ export const getPrimes = (range, start = 2) => {
         start += 1;
     }
 
-    let _isPrime = (num) => {
-        if (num === 0 || num === 1) {
-            return false;
-        }
-        for (var i = 2; i <= Math.sqrt(num); i++) {
-            if (num % i === 0) {
-                return false;
-            }
-        }
-        return true;
-    };
-
     for (var i = start; i <= range; i += 2) {
-        if (_isPrime(i)) {
+        if (isPrime(i)) {
             arr.push(i);
         }
     }
@@ -133,7 +120,7 @@ export const unlimFractionAppr = (value, range, precision = 10 ** -15) => {
     return memorised;
 }
 export const getLimitedCombos = (amplitudes) => {
-    /*    
+    /*
     returns a array of all possible combos of integers >= 0 in a given amplitudes
     (array of max integer amplitude for each position in combo)
 
@@ -156,7 +143,7 @@ export const getLimitedCombos = (amplitudes) => {
     for (let a = 1; a < amplitudes.length; a++) {
         weights.push(amplitudes.slice(0, a).reduce((a, b) => a * b, 1));
     }
-    weights.reverse(); //for RtL positions growth 
+    weights.reverse(); //for RtL positions growth
 
     //iterating on rows
     for (let row = 0; row < max; row++) {

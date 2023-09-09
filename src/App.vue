@@ -1,10 +1,10 @@
 <template>
   <v-app id="app">
-    <notifications 
+    <notifications
         classes="notification-vox"
-        group="vox" 
-        position="bottom left" 
-        :max="1" 
+        group="vox"
+        position="bottom left"
+        :max="1"
         :ignoreDuplicates="true"
       />
     <!-- App toolbar -->
@@ -15,7 +15,7 @@
         icon="mdi-menu"
         :hintText="drawer_L ? 'close menu' : 'open menu'"
       />
-      <v-toolbar-title>Sectio Canonis Web 0.2 </v-toolbar-title>
+      <v-toolbar-title>Sectio Canonis</v-toolbar-title>
       <v-spacer />
 
       <!-- dataViewMode  activator -->
@@ -151,20 +151,20 @@
         "
       />
 
-      <!-- mailto -->
-      <v-tooltip top open-delay="1000">
+    <!-- repo link -->
+    <v-tooltip top open-delay="1000">
         <template v-slot:activator="{ on }">
           <v-btn
             v-on="on"
-            href="mailto:sectio.canonis.app@gmail.com?subject=Web%20app%20support"
+            href="https://github.com/Horolsky/sectio-js"
             icon
             light
             color="white"
             :class="smallScreen ? '' : 'mx-2'"
-            ><v-icon size="medium">mdi-email</v-icon>
+            ><v-icon i size="medium">mdi-github</v-icon>
           </v-btn>
         </template>
-        <span>mail to author</span>
+        <span>GitHub repo</span>
       </v-tooltip>
     </v-footer>
 
@@ -380,6 +380,6 @@ export default {
   color: darkgrey !important;
 }
 .btn-group-btn-off .v-icon.theme--light {
-  color: grey !important;  
+  color: grey !important;
 }*/
 </style>

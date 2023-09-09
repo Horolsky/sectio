@@ -5,7 +5,7 @@ import store from './store/store'
 import vuetify from './plugins/vuetify';
 import sound from './plugins/sound';
 import localStorageManager from './plugins/LocalStorageManager';
-import MathCanonis from './utility/math-canonis';
+import MathCanonis from './core/math-canonis';
 Math.Canonis = MathCanonis;
 Object.freeze(Math.Canonis);
 import installArrayFuncs from './utility/installed-utils-array';

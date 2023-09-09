@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { primes } from '../../utility/math-canonis';
+import { primes } from '../../core/math-canonis';
 import Helper from './scripts/_canon-helper'
 //import storageManager from "../../plugins/LocalStorageManager";
 
@@ -97,8 +97,8 @@ export default {
             state.s_relInfo = Helper.buildRelInfoMap(state.sec_data.keys, rawmaps.relations, state.map_intervals, state.params.period);
             state.s_pitches = state.sec_data.keys.slice().sort((a, b) => state.sec_data[a].rtr - state.sec_data[b].rtr);
             state.map_scale = Helper.getScale(
-                state.sec_data, state.s_pitches, 
-                state.params.period, 
+                state.sec_data, state.s_pitches,
+                state.params.period,
                 state.baseFreq
                 );
             /*
@@ -220,7 +220,7 @@ export default {
             if (id == 0) {
                 state.sec_data.clear();
             } else if (!cascade) {
-                //reassigning children                    
+                //reassigning children
                 for (let s = keys.length - 1; s >= 0; s--) {
                     if (state.sec_data[keys[s]].parent == id) {
                         let child = keys[s];
@@ -266,7 +266,7 @@ export default {
                 state.sec_data[id].parent = parent;
                 state.sec_data[id].rtp = rtp;
 
-                //dependent data                    
+                //dependent data
                 let rtr = parent != null ? state.sec_data[parent].rtr + rtp : 0;
                 //rtr periodic normalisation
                 if (state.params.period != null) {
@@ -479,7 +479,7 @@ export default {
                 let id = state.sec_data.keys[i];
                 let color = (function() {
                     /*
-                    basic formula 2*(1-|(0.5-x)|) gives a distance to the point 
+                    basic formula 2*(1-|(0.5-x)|) gives a distance to the point
                     on a circle in fraction of a semicircumference
                     x is radial coordinate of a given point in a fraction of a full circumference;
                     */

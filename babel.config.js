@@ -2,7 +2,7 @@ module.exports = {
   "env":{
     "development":{
       "sourceMaps":true,
-      "retainLines":true, 
+      "retainLines":true,
     }
   },
   presets: [
