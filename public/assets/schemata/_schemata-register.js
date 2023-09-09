@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { deepMerge } from "../../utility/imported-utils-object";
+import { deepMerge } from "@util/imported-utils-object";
 // https://webpack.js.org/guides/dependency-management/#require-context
 const schemata = require.context(
     // Look for files in the current directory

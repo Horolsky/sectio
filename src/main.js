@@ -8,7 +8,7 @@ import localStorageManager from './plugins/LocalStorageManager';
 import MathCanonis from './core/math-canonis';
 Math.Canonis = MathCanonis;
 Object.freeze(Math.Canonis);
-import installArrayFuncs from './utility/installed-utils-array';
+import installArrayFuncs from '@util/installed-utils-array';
 installArrayFuncs();
 
 

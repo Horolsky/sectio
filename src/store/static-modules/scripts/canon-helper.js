@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import dictCache from './cache-ratioDicts'
-import { binFloatingSearch } from '../../../core/math-canonis';
+import { binFloatingSearch } from '@core/math-canonis';
 const precision = 10 ** -12;
 export function findPair(pairs, pair) {
     let index = -1

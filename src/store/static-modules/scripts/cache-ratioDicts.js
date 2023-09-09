@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { getLimitedRatioDict } from '../../../core/math-canonis';
+import { getLimitedRatioDict } from '@core/math-canonis';
 //TODO safe naming for normalised maps
 export default {
     get sessionReg() {

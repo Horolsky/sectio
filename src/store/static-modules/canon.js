@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import { primes } from '../../core/math-canonis';
+import { primes } from '@core/math-canonis';
 import Helper from './scripts/canon-helper'
-//import storageManager from "../../plugins/LocalStorageManager";
+//import storageManager from "@plugins/LocalStorageManager";
 
 
 import Vue from 'vue'

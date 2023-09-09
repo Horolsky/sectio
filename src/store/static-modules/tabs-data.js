@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { getLimitedRatioDict } from '../../core/math-canonis';
+import { getLimitedRatioDict } from '@core/math-canonis';
 export default {
 
     //namespaced: false,
