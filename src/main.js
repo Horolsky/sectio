@@ -15,7 +15,7 @@ installArrayFuncs();
 
 
 
-import './components/_global/_register'
+import './components/global/register'
 import './registerServiceWorker'
 import Notifications from 'vue-notification'
 Vue.use(Notifications);
