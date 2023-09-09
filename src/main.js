@@ -24,7 +24,7 @@ Vue.config.devtools = true
 Vue.config.productionTip = false;
 
 
-import GlobalMixin from "./global-mixins/_global-mixins"
+import GlobalMixin from "./global-mixins/default"
 Vue.mixin(GlobalMixin)
 new Vue({
     //myOption: 'hello!',

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { primes } from '../../core/math-canonis';
-import Helper from './scripts/_canon-helper'
+import Helper from './scripts/canon-helper'
 //import storageManager from "../../plugins/LocalStorageManager";
 
 
