@@ -40,7 +40,7 @@
                 style="font-size: 125%;"
                 :class="
                   `elevation-1 mb-1 ${
-                    $sound.state.activeChord.includes(n)
+                    $sound.activeChord.includes(n)
                       ? btnColorOn
                       : btnColorOff
                   }`
@@ -58,7 +58,7 @@
               :class="powered ? '' : 'disable-events'"
             >
               <v-icon :color="powered ? 'white' : 'grey'">{{
-                $sound.state.activeChord.length > 0
+                $sound.activeChord.length > 0
                   ? "mdi-circle-off-outline"
                   : "mdi-circle-outline"
               }}</v-icon>
@@ -89,7 +89,7 @@ export default {
     drawer: Boolean,
   },
   components: {
-    Keypress: () => import("vue-keypress"),
+    Keypress: () => import("vue3-keypress"),
   },
   data: () => ({
     powered: true,

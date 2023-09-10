@@ -65,10 +65,10 @@ import RatioViewer from "../mixins/RatioViewer";
 import CanonData from "../mixins/CanonData";
 //import IGdata from "./IG_Data";
 import Position from "./position-getters";
-import InfoChart from "./IG_Chart";
+import InfoChart from "./InfoChart";
 import RelationsDrawer from "../view-data-table/Drawer_ShowRelations";
 export default {
-  name: "Infographic",
+  name: "InfoGraphic",
   components: {
     InfoChart,
     RelationsDrawer,

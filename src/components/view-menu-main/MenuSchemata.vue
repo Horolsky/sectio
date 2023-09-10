@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import getRegister from "@assets/schemata/_schemata-register";
+import getRegister from "@assets/schemata/_schemata-register.js";
 import SchemataSubfolder from "./menu-schemata/SchemataSubfolder";
 export default {
   name: "SchemataMenu",

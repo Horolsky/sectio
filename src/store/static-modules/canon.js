@@ -3,8 +3,6 @@ import { primes } from '@core/math-canonis';
 import Helper from './scripts/canon-helper'
 //import storageManager from "@plugins/LocalStorageManager";
 
-
-import Vue from 'vue'
 const precision = 10 ** -12;
 
 export default {
@@ -50,7 +48,8 @@ export default {
                     let keys = this.keys.slice();
                     keys.splice(keys.indexOf(0), 1);
                     for (let i = 0; i < keys.length; i++) {
-                        Vue.delete(this, keys[i]);
+                        delete this.keys[i]
+                        // Vue.delete(this, keys[i]);
                     }
                 },
                 writable: false
@@ -170,7 +169,8 @@ export default {
                     if (rtr < 0) rtr = state.params.period + rtr;
                     if (Math.abs(rtr - state.params.period) < precision) rtr = state.params.period;
                 }
-                Vue.set(state.sec_data, id, { name, code, parent, rtp, rtr });
+                state.sec_data[id] = { name, code, parent, rtp, rtr }
+                // Vue.set(state.sec_data, id, );
             }
         },
         // eslint-disable-next-line no-unused-vars
@@ -213,7 +213,8 @@ export default {
                 if (rtr < 0) rtr = state.params.period + rtr;
                 if (Math.abs(rtr - state.params.period) < precision) rtr = state.params.period;
             }
-            Vue.set(state.sec_data, id, { name, code, parent, rtp, rtr });
+            state.sec_data[id] = { name, code, parent, rtp, rtr }
+            // Vue.set(state.sec_data, id, );
         },
         REMOVE_SECTION(state, { id, cascade }) {
             let keys = state.sec_data.keys.slice().sort();
@@ -226,10 +227,12 @@ export default {
                         let child = keys[s];
                         state.sec_data[child].rtp = state.sec_data[child].rtr;
                         state.sec_data[child].parent = 0;
-                        Vue.set(state.sec_data, child, state.sec_data[child])
+
+                        // Vue.set(state.sec_data, child, state.sec_data[child])
                     }
                 }
-                Vue.delete(state.sec_data, id);
+                delete state.sec_data[id]
+                // Vue.delete(state.sec_data, id);
             } else {
                 let branch = [id];
                 (function collectBranch(secID) {
@@ -242,7 +245,8 @@ export default {
                 })(id);
 
                 for (let s = branch.length - 1; s >= 0; s--) {
-                    Vue.delete(state.sec_data, branch[s]);
+                    delete state.sec_data[branch[s]]
+                    // Vue.delete(state.sec_data, branch[s]);
                 }
             }
             //UPDATE_MAPS
@@ -281,12 +285,12 @@ export default {
                         let child = state.sec_data.keys[s];
                         if (state.sec_data[child].parent == parent) {
                             state.sec_data[child].rtr = (state.sec_data[parent].rtr + state.sec_data[child].rtp) % (state.params.period ? state.params.period : Infinity);
-                            Vue.set(state.sec_data, child, state.sec_data[child]);
+                            // Vue.set(state.sec_data, child, state.sec_data[child]);
                             branchRecalc(child);
                         }
                     }
                 })(id)
-                Vue.set(state.sec_data, id, state.sec_data[id]);
+                // Vue.set(state.sec_data, id, state.sec_data[id]);
             }
             return true;
         },
@@ -339,7 +343,7 @@ export default {
                         let child = state.sec_data.keys[s];
                         if (state.sec_data[child].parent == parent) {
                             state.sec_data[child].rtr = (state.sec_data[parent].rtr + state.sec_data[child].rtp) % (payload.period ? payload.period : Infinity);
-                            Vue.set(state.sec_data, child, state.sec_data[child]);
+                            // Vue.set(state.sec_data, child, state.sec_data[child]);
                             resetRtr(child);
                         }
                     }

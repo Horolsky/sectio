@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-v-text-v-html-on-component -->
 <template>
   <div ref="chart_cont" :class="contClass + ' my-4'">
     <div :class="linear ? 'cs-linear' : 'cs-cyclic'" />
@@ -25,10 +26,9 @@
 </template>
 
 <script>
-//import IGdata from "./IG_Data";
 
 export default {
-  name: "",
+  name: "InfoChart",
   //mixins: [IGdata],
   props: {
     chart_intervals: Array,

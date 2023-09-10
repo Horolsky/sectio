@@ -1,26 +1,20 @@
 /* eslint-disable no-console */
-import Vue from 'vue';
-
-let storageRegistry = {
-    _schemata: [],
-};
 
 
-let state = {
-    update() {
+const localStore = {
+
+    schemata: [],
+
+    update: () => {
         let LS_Reg = JSON.parse(localStorage.getItem('schemataRegister'));
 
-        this.schemataRegister = LS_Reg ? LS_Reg : [];
+        localStore.schemata = LS_Reg ? LS_Reg : [];
     },
-    get schemataRegister() {
-        return storageRegistry._schemata;
-    },
-    set schemataRegister(val) {
-        if (Array.isArray(val)) storageRegistry._schemata = val;
-    },
+
+
     setSchema(schema) {
         let key = 1;
-        while (this.schemataRegister.findIndex((element) => element.key === `LS-${key}`) >= 0) {
+        while (localStore.schemata.findIndex((element) => element.key === `LS-${key}`) >= 0) {
             key++;
         }
         key = `LS-${key}`;
@@ -37,7 +31,7 @@ let state = {
         });
         localStorage.setItem('schemataRegister', JSON.stringify(LS_Reg));
 
-        this.update();
+        localStore.update();
     },
     storeCanon(json, id) {
         localStorage.setItem('canonData-' + id, json);
@@ -50,34 +44,16 @@ let state = {
         let LS_Reg = JSON.parse(localStorage.getItem('schemataRegister'));
         if (Array.isArray(LS_Reg)) LS_Reg.splice(LS_Reg.findIndex((element) => element.key === key), 1);
         localStorage.setItem('schemataRegister', JSON.stringify(LS_Reg));
-        this.update();
+        localStore.update();
     },
     getItem(key) {
         return localStorage.getItem(key);
+    },
+
+    // eslint-disable-next-line no-unused-vars
+    install: (app, options) => {
+        app.config.globalProperties.$localStorage = localStore;
     }
 }
 
-class AppDataStore {
-    constructor(data = {}) {
-        this.storeVM = new Vue({ data })
-    }
-    get state() {
-        return this.storeVM.$data
-    }
-}
-const LocalStorageManager = {
-    Store: AppDataStore,
-    install(Vue, options) {
-        Vue.mixin({
-            beforeCreate() {
-                this.$localStorage = options.store
-            }
-        })
-    }
-}
-
-Vue.use(LocalStorageManager, {
-    store: new LocalStorageManager.Store(state)
-})
-
-export default LocalStorageManager;
+export default localStore;

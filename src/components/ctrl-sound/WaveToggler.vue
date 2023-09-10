@@ -36,7 +36,7 @@ export default {
   computed: {
     waveType: {
       get() {
-        return this.wavetypes.indexOf(this.$sound.state.wavetype);
+        return this.wavetypes.indexOf(this.$sound.wavetype);
       },
       set(val) {
         this.$sound.setWave(this.wavetypes[val]);

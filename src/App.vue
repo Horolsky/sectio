@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-v-text-v-html-on-component -->
 <template>
   <v-app id="app">
     <notifications
@@ -128,10 +129,10 @@
       <!-- sound on/off -->
       <v-spacer />
       <HintedButton
-        @click="$sound.state.mute = !$sound.state.mute"
-        :icon="$sound.state.mute ? 'mdi-volume-off' : 'mdi-volume-high'"
-        :color="$sound.state.mute ? 'black' : 'white'"
-        :hintText="$sound.state.mute ? 'mdi-volume-off' : 'mdi-volume-high'"
+        @click="$sound.switch()"
+        :icon="$sound.muted ? 'mdi-volume-off' : 'mdi-volume-high'"
+        :color="$sound.muted ? 'black' : 'white'"
+        :hintText="$sound.muted ? 'mdi-volume-off' : 'mdi-volume-high'"
         :elClass="smallScreen ? 'mx-0' : 'mx-2'"
         size="medium"
       />
@@ -308,7 +309,7 @@ export default {
       console.log(message);
     },
     initialize() {
-      this.$localStorage.state.update();
+      this.$localStorage.update();
       this.resetWindowWidth();
       window.addEventListener("resize", this.resetWindowWidth);
       this.$vuetify.theme.dark = true;

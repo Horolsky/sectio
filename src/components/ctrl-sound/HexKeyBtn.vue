@@ -33,7 +33,7 @@ import CanonData from "../mixins/CanonData";
 export default {
   name: "HexKeyBtn",
   components: {
-    Keypress: () => import("vue-keypress"),
+    Keypress: () => import("vue3-keypress"),
   },
   props: {
     active: Boolean,
@@ -123,7 +123,7 @@ export default {
       return this.$store.getters.CURRENT_CANON != undefined;
     },
     activeChord: function() {
-      return this.$sound.state.activeChord;
+      return this.$sound.activeChord;
     },
     scale: function() {
       if (this.hasData) {

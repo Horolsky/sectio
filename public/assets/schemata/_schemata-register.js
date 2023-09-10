@@ -1,5 +1,8 @@
+// export default () => {};
+
 /* eslint-disable no-console */
 import { deepMerge } from "@util/imported-utils-object";
+// const deepMerge = require("@util/imported-utils-object").deepMerge;
 // https://webpack.js.org/guides/dependency-management/#require-context
 const schemata = require.context(
     // Look for files in the current directory
@@ -33,7 +36,7 @@ export default function getRegister() {
 
                     let descr;
                     try {
-                        descr = require(dpath.join('/') + '/description.json');
+                        // descr = require(dpath.join('/') + '/description.json');
                     } catch (e) {
                         //
                     }

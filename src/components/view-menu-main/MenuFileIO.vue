@@ -35,7 +35,7 @@
                 <v-col cols="1">
                   <v-btn
                     icon
-                    @click.stop="$localStorage.state.removeSchema(schema.key)"
+                    @click.stop="$localStorage.removeSchema(schema.key)"
                   >
                     <v-icon>mdi-file-remove-outline</v-icon>
                   </v-btn>
@@ -57,7 +57,7 @@
                 <v-list-item-action>
                   <v-btn
                     icon
-                    @click.stop="$localStorage.state.removeSchema(schema.key)"
+                    @click.stop="$localStorage.removeSchema(schema.key)"
                   >
                     <v-icon>mdi-file-remove-outline</v-icon>
                   </v-btn>
@@ -67,7 +67,7 @@
                 </v-list-item-action>
               </v-list-item>
               <v-list-item
-                v-if="$localStorage.state.schemataRegister.length == 0"
+                v-if="$localStorage.schemataRegister.length == 0"
               >
                 <v-list-item-title>Local storage is empty</v-list-item-title>
               </v-list-item>
@@ -157,22 +157,22 @@ export default {
       set() {},
     },
     schemataLocalRegister: function() {
-      return this.$localStorage.state.schemataRegister;
+      return this.$localStorage.schemataRegister;
     },
   },
   methods: {
     initialize() {},
     loadLocalSchema(key) {
-      let schema = JSON.parse(this.$localStorage.state.getItem(key));
+      let schema = JSON.parse(this.$localStorage.getItem(key));
       this.$store.dispatch("LOAD_SCHEMA", schema);
       this.storageDialog = false;
     },
     saveLocalSchema(canonID) {
-      let schema = this.$localStorage.state.getCanon(canonID);
-      this.$localStorage.state.setSchema(schema);
+      let schema = this.$localStorage.getCanon(canonID);
+      this.$localStorage.setSchema(schema);
     },
     removeLocalSchema(key) {
-      this.$localStorage.state.removeSchema(key);
+      this.$localStorage.removeSchema(key);
     },
   },
   watch: {
@@ -197,7 +197,7 @@ export default {
       this.importDialog = false;
     },
     outputCanon(id) {
-      let schema = this.$localStorage.state.getCanon(id);
+      let schema = this.$localStorage.getCanon(id);
       const blob = new Blob([schema], { type: "text/plain" });
       this.outputFileName = this.canons[id].text + ".canon";
       this.outputURL = window.URL.createObjectURL(blob);

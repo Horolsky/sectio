@@ -1,3 +1,7 @@
+<!-- eslint-disable vue/no-mutating-props -->
+<!-- eslint-disable vue/no-v-text-v-html-on-component -->
+
+
 <template>
   <v-col class="mx-0 my-0 ratio">
     <v-row no-gutters class="my-0 py-0 ratio-label">{{ label }} </v-row>

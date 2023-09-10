@@ -58,7 +58,7 @@ export default {
   },
   data: () => ({
     //dialog: false,
-    title: ["Table options", "Keyboard options", "Infographic options"],
+    title: ["Table options", "Keyboard options", "InfoGraphic options"],
     //ratioViewMode: 0,
   }),
   created() {

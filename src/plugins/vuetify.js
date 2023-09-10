@@ -1,7 +1,15 @@
-import Vue from 'vue';
-import Vuetify from 'vuetify/lib';
+import '@mdi/font/css/materialdesignicons.css'
+import 'vuetify/styles'
 
-Vue.use(Vuetify);
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
 
-export default new Vuetify({
-});
+import { createVuetify } from 'vuetify'
+
+const vuetify = createVuetify({
+  ssr: true,
+  components,
+  directives
+})
+
+export default vuetify;

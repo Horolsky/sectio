@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-v-text-v-html-on-component -->
 <template>
   <v-card flat tile v-if="active && hasData"
     ><!-- todo rework for emptydata case-->

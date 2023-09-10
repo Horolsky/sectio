@@ -53,7 +53,7 @@ export default {
     drawer_content: null
   }),
   created() {
-    this.initialize();
+    // this.initialize();
   },
   computed: {},
   methods: {

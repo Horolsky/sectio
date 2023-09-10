@@ -29,21 +29,21 @@
     <!-- TAB CONTENT -->
     <SectionsTable :active="dataViewMode == 0" />
     <QwertyKeyboard :active="dataViewMode == 1" />
-    <Infographic :active="dataViewMode == 2" />
+    <InfoGraphic :active="dataViewMode == 2" />
   </div>
 </template>
 
 <script>
 import SectionsTable from "./view-data-table/SectionsTable";
 import QwertyKeyboard from "./ctrl-sound/QwertyKeyboard";
-import Infographic from "./view-infographic/Infographic";
+import InfoGraphic from "./view-infographic/InfoGraphic";
 //import ChordControl from "./ctrl-sound/ChordControl";
 import { mapActions, mapGetters } from "vuex";
 export default {
   components: {
     SectionsTable,
     QwertyKeyboard,
-    Infographic,
+    InfoGraphic,
   },
   mounted: function() {
     this.initialize();
@@ -56,7 +56,7 @@ export default {
   }),
   methods: {
     initialize() {
-      this.$set(this, "tabID", parseInt(this.CURRENT_CANON));
+      this.tabID = parseInt(this.CURRENT_CANON);
     },
     closeTab(canonID) {
       this.DISPOSE_CANON(canonID);
